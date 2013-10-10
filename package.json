@@ -1,0 +1,11 @@
+{
+  "name": "Contriboot",
+  "dependencies" : {
+    "restify": "2.6",
+    "mongoose": "3.6.20"
+
+  },
+  "devDependencies": {
+    "nodemon": "*"
+  }
+}
