@@ -14,6 +14,14 @@ var server = restify.createServer();
 server.pre(restify.pre.userAgentConnection());
 server.use(restify.bodyParser({ mapParams: false }));
 
+server.use(
+  function crossOrigin(req,res,next){
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    return next();
+  }
+);
+
 
 server.get('/interest', function(req, res) {
 	Interest.find({}, function(err, docs) {
