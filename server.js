@@ -16,14 +16,15 @@ server.use(restify.bodyParser({ mapParams: false }));
 
 
 server.get('/interest', function(req, res) {
-	var result = Interest.find({});
-	res.send(result);
+	Interest.find({}, function(err, docs) {
+		res.send(docs);
+	});
 });
 
 server.get('/interest/:id', function(req, res) {
 
-	Interest.findById(req.params.id, function(err, data) {
-		res.send(data);
+	Interest.findById(req.params.id, function(err, docs) {
+		res.send(docs);
 	});
 
 });
